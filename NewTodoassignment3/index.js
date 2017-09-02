@@ -16,21 +16,7 @@ app.use("/", function(req, res, next){
     next();
 });
 
-// Serve Static Assets in public directory
 app.use("/", express.static(__dirname+"/public"));
-
-// What all interactions?
-// 1. get all todos
-// 2. add a todo
-// 3. complete a todo (modifying)
-// 4. delete a todo
-
-
-// HW : RESTful APIs
-// Let's you put some structure to your API
-
-// Endpoint - that denotes a noun
-// Request Method - action you want to take
 
 
 // 1. get all todos
@@ -62,8 +48,6 @@ app.delete("/api/todos/:id", function(req, res) {
 
     var del_id = req.params.id;
     var todo = todos_db.todos[del_id];
-    // if this todo doesn't exist
-    // then send appropriate response to consumer
     if (!todo) {
         res.status(400).json({error: "Todo doesn't exist"});
     }
@@ -71,13 +55,6 @@ app.delete("/api/todos/:id", function(req, res) {
         todo.status = todos_db.StatusENUMS.DELETED;
         res.json(todos_db.todos);
     }
-
-
-
-
-    // if this todo exists
-    // delete
-    // send appropriate response to consumer
 
 });
 
@@ -91,14 +68,8 @@ app.delete("/api/todos/:id", function(req, res) {
 
 app.post("/api/todos", function(req, res){
 
-    // Expect a title in the body of the request
-    // in the x-www-form-urlencoded format
-    // in the style
-    //todo_title=<the new title>
 
     var todo = req.body.todo_title;
-
-    // if you don't send a todo_title
 
     if (!todo || todo == "" || todo.trim() == ""){
         res.status(400).json({error : "Todo Title Can't Be Empty"});

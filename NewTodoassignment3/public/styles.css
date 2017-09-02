@@ -1,6 +1,6 @@
-/*
-Rule - Selector, Descriptor
-*/
+a{
+    float:right;
+}
 h1{
     font-size:60px;
     text-align:center;
@@ -51,18 +51,18 @@ h1{
     margin-right:5px;
 }
 
-div.todoStatusACTIVE {
+.todoStatusACTIVE {
 
     color : blue;
 }
 
 
-div.todoStatusCOMPLETE{
+.todoStatusCOMPLETE{
     color : green;
     text-decoration : line-through;
 }
 
-div.todoStatusDELETED {
+.todoStatusDELETED {
     color : red;
     text-decoration : line-through;
 
